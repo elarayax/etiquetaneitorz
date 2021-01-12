@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Etiquetaneitor Z</title>
+    <link rel="shortcut icon" href="https://83fe73d89042c4580891-048d05f1033e3ca7ac74e4dca053a951.ssl.cf2.rackcdn.com/pulverizadores_boquillas_impac_s_a_i5_02ad5287d7764d60cc7d22b7b7fdfb84.jpg">
+</head>
+<body style="text-align: center;">
+    <img src="https://www.impac.cl/pub/media/wysiwyg/cleversoft/logo/logo-impac-01_2.svg" style="width: 10%;" alt="">
+    <center>
+    <form class="form-group" autocomplete="off" action="/buscar" method="GET">
+        <h4><b>Ingrese Número de Busqueda</b></h4>
+        <select style="width: 250px;" class="form-control" name="select">
+            <option value="nop" selected>Seleccionar</option>
+            <option value="1" >Nota de Venta</option>
+            <option value="2" >Boleta / Factura</option>
+            <option value="3">Guia de Despacho</option>
+            <option value="4">Transferencia de Stock</option>
+            <option value="5">Bodega</option>
+        </select><br>
+        <input style="width: 250px;" class="form-control" type="text" name="prd" id="" placeholder="Código de Documento"><br><br>
+        <input class="btn btn-success" type="submit" value="Imprimir">
+    </form>
+    
+    {% if estado %}
+        {% autoescape off %}{{ estado }}{% endautoescape %}
+    {% else %}  
+        <br>
+        <div style="width: 250px;" class="alert alert-info">
+            <strong>Esperando impresiones</strong>
+        </div>
+    {% endif %}
+    </center>
+</body>
+</html>

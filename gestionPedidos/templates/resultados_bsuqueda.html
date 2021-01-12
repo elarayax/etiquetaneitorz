@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Estas Buscando : <strong>{{query}}</strong> </p>
+{% if articulos %}
+    <p>Articulos entontradps: {{articulos|length}} articulos</p>
+    <ul>
+        {% for articulo in articulos %}
+        <li>
+            {{articulo.nombre}}
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No se encontraron articulos con ese nombre</p>
+{% endif %}
+</body>
+</html>

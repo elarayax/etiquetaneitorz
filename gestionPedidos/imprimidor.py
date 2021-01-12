@@ -185,7 +185,7 @@ def imprimir(razon, direccio, ciudad, telefono, nombre, transporte, folio, nota,
 
 def nota_venta(nota):
     op = nota
-    conn = pyodbc.connect('DRIVER={SQL Server};SERVER=IMPAC-SAP;DATABASE=DB_IMPAC_NUEVA;UID=sa;PWD=SAPB1Admin')
+    conn = pyodbc.connect('DRIVER={SQL Server};SERVER=IMPAC-SAP;DATABASE=DB_IMPAC_NUEVA;UID=sa;PWD=')
     cursor = conn.cursor()
     telefono = "S/N"
     try:
@@ -254,7 +254,7 @@ def nota_venta(nota):
 
 def factura(nota):
     op = nota
-    conn = pyodbc.connect('DRIVER={SQL Server};SERVER=IMPAC-SAP;DATABASE=DB_IMPAC_NUEVA;UID=sa;PWD=SAPB1Admin')
+    conn = pyodbc.connect('DRIVER={SQL Server};SERVER=IMPAC-SAP;DATABASE=DB_IMPAC_NUEVA;UID=sa;PWD=')
     cursor = conn.cursor()
     tel = "S/N"
     razon = "sd"
@@ -321,7 +321,7 @@ def guia(nota):
     nombre = None
     folio = None
     nota = None
-    conn = pyodbc.connect( 'DRIVER={SQL Server};SERVER=IMPAC-SAP;DATABASE=DB_IMPAC_NUEVA;UID=sa;PWD=SAPB1Admin')
+    conn = pyodbc.connect( 'DRIVER={SQL Server};SERVER=IMPAC-SAP;DATABASE=DB_IMPAC_NUEVA;UID=sa;PWD=')
     try:
         cursors = conn.cursor()
         qt = "SELECT distinct T0.[DocNum], T2.[FolioNum], T2.[U_transporte], T2.[U_PesoNeto], T3.[CityS], T3.[StreetS], T2.[CardName],FLOOR(T2.[U_CantBultos]), T2.[PayToCode], T4.[Name], T4.[Tel1], T4.[Cellolar] FROM ORDR T0 INNER JOIN RDR1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN ODLN T2 ON T2.DocEntry = T1.TrgetEntry full JOIN DLN12 T3 ON T2.DocEntry = T3.DocEntry full JOIN OCPR T4 ON T2.CntctCode = T4.CntctCode where T2.FolioNum ="+str(op)
@@ -372,7 +372,7 @@ def transferencia(nota):
     folio = None
     nota = None
     try :
-        conn = pyodbc.connect('DRIVER={SQL Server};SERVER=IMPAC-SAP;DATABASE=DB_IMPAC_NUEVA;UID=sa;PWD=SAPB1Admin')
+        conn = pyodbc.connect('DRIVER={SQL Server};SERVER=IMPAC-SAP;DATABASE=DB_IMPAC_NUEVA;UID=sa;PWD=')
         cursors = conn.cursor()
         qt = "SELECT distinct T0.[DocNum], T0.[FolioNum], T2.[U_transporte], T2.[U_PesoNeto], T3.[CityS], T3.[StreetS], T2.[CardName],FLOOR(T2.[U_CantBultos]), T2.[PayToCode], T4.[Name], T4.[Tel1], T4.[Cellolar] FROM OWTR T0 INNER JOIN RDR1 T1 ON T0.DocEntry = T1.DocEntry INNER JOIN ODLN T2 ON T2.DocEntry = T1.TrgetEntry full JOIN DLN12 T3 ON T2.DocEntry = T3.DocEntry full JOIN OCPR T4 ON T2.CntctCode = T4.CntctCode where T0.FolioNum ="+str(op)
         cursors.execute(qt)
@@ -410,7 +410,7 @@ def transferencia(nota):
     return imprimir(razon, direccio, ciudad, telefono, nombre,transporte, folio, nota, bultos, peso)
 def bodega(nota):
     op = nota
-    conn = pyodbc.connect('DRIVER={SQL Server};SERVER=IMPAC-SAP;DATABASE=DB_IMPAC_NUEVA;UID=sa;PWD=SAPB1Admin')
+    conn = pyodbc.connect('DRIVER={SQL Server};SERVER=IMPAC-SAP;DATABASE=DB_IMPAC_NUEVA;UID=sa;PWD=')
     cursor = conn.cursor()
     telefono = "S/N"
     try:
